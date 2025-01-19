@@ -1,0 +1,56 @@
+var wms_layers = [];
+var format_DesaIndonesia_0 = new ol.format.GeoJSON();
+var features_DesaIndonesia_0 = format_DesaIndonesia_0.readFeatures(json_DesaIndonesia_0, 
+            {dataProjection: 'EPSG:4326', featureProjection: 'EPSG:3857'});
+var jsonSource_DesaIndonesia_0 = new ol.source.Vector({
+    attributions: [new ol.Attribution({html: '<a href=""></a>'})],
+});
+jsonSource_DesaIndonesia_0.addFeatures(features_DesaIndonesia_0);var lyr_DesaIndonesia_0 = new ol.layer.Vector({
+                declutter: true,
+                source:jsonSource_DesaIndonesia_0, 
+                style: style_DesaIndonesia_0,
+                title: '<img src="styles/legend/DesaIndonesia_0.png" /> DesaIndonesia'
+            });var format_NAMA_JALAN_1 = new ol.format.GeoJSON();
+var features_NAMA_JALAN_1 = format_NAMA_JALAN_1.readFeatures(json_NAMA_JALAN_1, 
+            {dataProjection: 'EPSG:4326', featureProjection: 'EPSG:3857'});
+var jsonSource_NAMA_JALAN_1 = new ol.source.Vector({
+    attributions: [new ol.Attribution({html: '<a href=""></a>'})],
+});
+jsonSource_NAMA_JALAN_1.addFeatures(features_NAMA_JALAN_1);var lyr_NAMA_JALAN_1 = new ol.layer.Vector({
+                declutter: true,
+                source:jsonSource_NAMA_JALAN_1, 
+                style: style_NAMA_JALAN_1,
+    title: 'NAMA_JALAN<br />\
+    <img src="styles/legend/NAMA_JALAN_1_0.png" /> 1<br />\
+    <img src="styles/legend/NAMA_JALAN_1_1.png" /> 2<br />\
+    <img src="styles/legend/NAMA_JALAN_1_2.png" /> 3<br />\
+    <img src="styles/legend/NAMA_JALAN_1_3.png" /> 4<br />\
+    <img src="styles/legend/NAMA_JALAN_1_4.png" /> 5<br />\
+    <img src="styles/legend/NAMA_JALAN_1_5.png" /> <br />'
+        });var format_namarumahbali_2 = new ol.format.GeoJSON();
+var features_namarumahbali_2 = format_namarumahbali_2.readFeatures(json_namarumahbali_2, 
+            {dataProjection: 'EPSG:4326', featureProjection: 'EPSG:3857'});
+var jsonSource_namarumahbali_2 = new ol.source.Vector({
+    attributions: [new ol.Attribution({html: '<a href=""></a>'})],
+});
+jsonSource_namarumahbali_2.addFeatures(features_namarumahbali_2);var lyr_namarumahbali_2 = new ol.layer.Vector({
+                declutter: true,
+                source:jsonSource_namarumahbali_2, 
+                style: style_namarumahbali_2,
+                title: '<img src="styles/legend/namarumahbali_2.png" /> nama rumah bali'
+            });
+
+lyr_DesaIndonesia_0.setVisible(true);lyr_NAMA_JALAN_1.setVisible(true);lyr_namarumahbali_2.setVisible(true);
+var layersList = [lyr_DesaIndonesia_0,lyr_NAMA_JALAN_1,lyr_namarumahbali_2];
+lyr_DesaIndonesia_0.set('fieldAliases', {'DESA': 'DESA', 'KECAMATAN': 'KECAMATAN', 'KABUPATEN': 'KABUPATEN', 'PROPINSI': 'PROPINSI', 'LUAS': 'LUAS', 'MI_PRINX': 'MI_PRINX', 'BALDES': 'BALDES', });
+lyr_NAMA_JALAN_1.set('fieldAliases', {'id': 'id', 'Nama_jalan': 'Nama_jalan', });
+lyr_namarumahbali_2.set('fieldAliases', {'id': 'id', 'nama rumah': 'nama rumah', 'BALDES': 'BALDES', });
+lyr_DesaIndonesia_0.set('fieldImages', {'DESA': 'TextEdit', 'KECAMATAN': 'TextEdit', 'KABUPATEN': 'TextEdit', 'PROPINSI': 'TextEdit', 'LUAS': 'TextEdit', 'MI_PRINX': 'TextEdit', 'BALDES': 'TextEdit', });
+lyr_NAMA_JALAN_1.set('fieldImages', {'id': 'TextEdit', 'Nama_jalan': 'TextEdit', });
+lyr_namarumahbali_2.set('fieldImages', {'id': 'TextEdit', 'nama rumah': 'TextEdit', 'BALDES': 'TextEdit', });
+lyr_DesaIndonesia_0.set('fieldLabels', {'DESA': 'inline label', 'KECAMATAN': 'inline label', 'KABUPATEN': 'inline label', 'PROPINSI': 'inline label', 'LUAS': 'inline label', 'MI_PRINX': 'inline label', 'BALDES': 'inline label', });
+lyr_NAMA_JALAN_1.set('fieldLabels', {'id': 'inline label', 'Nama_jalan': 'inline label', });
+lyr_namarumahbali_2.set('fieldLabels', {'id': 'inline label', 'nama rumah': 'inline label', 'BALDES': 'inline label', });
+lyr_namarumahbali_2.on('precompose', function(evt) {
+    evt.context.globalCompositeOperation = 'normal';
+});
